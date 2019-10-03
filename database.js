@@ -41,3 +41,7 @@ module.exports.getCards = setName => {
 module.exports.changeFrequency = (card, frequency) => {
   return FlashCard.findOneAndUpdate({ _id: card }, { frequency: frequency });
 };
+
+module.exports.getSets = () => {
+  return FlashCard.distinct("set");
+};

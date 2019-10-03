@@ -8,11 +8,26 @@ const db = require("./database");
 app.use("/", express.static(path.join(__dirname, "dist")));
 app.use(bodyParser.json());
 
+//get request to /sets for names of sets
+
 // get request to /cards/:setName specify setName in params and recieve array of card objects
 app.get("/cards/:setName", (req, res) => {
   db.getCards(req.params.setName)
     .then(data => {
       console.log(data);
+      res.send(data);
+    })
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+// get request to /sets will return names of sets
+app.get("/sets", (req, res) => {
+  db.getSets()
+    .then(data => {
+      console.log("sets: ", data);
       res.send(data);
     })
     .catch(err => {
@@ -46,5 +61,7 @@ app.put("/cards/:id", (req, res) => {
       res.sendStatus(500);
     });
 });
+
+// delete request to /cards/:id to delete a card
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
