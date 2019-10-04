@@ -1,33 +1,33 @@
 module.exports.data = [
   {
-    _id: 4,
+    _id: 0,
     set: "set1",
-    front: "Front of card 4",
-    back: "Back of card 4",
+    front: "Front of card 0",
+    back: "Back of card 0",
     frequency: 3,
     __v: 0
   },
   {
-    _id: 5,
+    _id: 1,
     set: "set1",
-    front: "Front of card 5",
-    back: "Back of card 5",
+    front: "Front of card 1",
+    back: "Back of card 1",
     frequency: 3,
     __v: 0
   },
   {
-    _id: 6,
+    _id: 2,
     set: "set1",
-    front: "Front of card",
-    back: "Back of card",
+    front: "Front of card2",
+    back: "Back of card2",
     frequency: 3,
     __v: 0
   },
   {
-    _id: 7,
+    _id: 3,
     set: "set1",
-    front: "Front of card",
-    back: "Back of card",
+    front: "Front of card3",
+    back: "Back of card3",
     frequency: 3,
     __v: 0
   }

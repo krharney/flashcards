@@ -16,14 +16,14 @@ export default function SetList(props) {
     props.selectHandler(set);
   }
 
-  function getSetList() {}
-
   return (
     <div>
       <Button
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={handleClick}
+        variant="outlined"
+        color="primary"
       >
         Select Card Set
       </Button>

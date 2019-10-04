@@ -2,6 +2,8 @@ import React from "react";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 
+const faces = ["😭", "😦", "😕", "😌", "😎"];
+
 const Rating = props => {
   return (
     <div>
@@ -10,11 +12,20 @@ const Rating = props => {
         size="large"
         aria-label="small contained button group"
       >
-        <Button>😭</Button>
-        <Button>😦</Button>
-        <Button>😕</Button>
-        <Button>😌</Button>
-        <Button>😎</Button>
+        {faces.map((face, idx) => {
+          return (
+            <Button
+              style={{ fontSize: "30px" }}
+              key={idx}
+              onClick={() => {
+                props.changeFrequency(props.cardId, 5 - idx);
+                props.flipCard();
+              }}
+            >
+              {face}
+            </Button>
+          );
+        })}
       </ButtonGroup>
     </div>
   );
