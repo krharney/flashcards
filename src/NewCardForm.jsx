@@ -7,6 +7,8 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import axios from "axios";
+const getDefinition = require("./helpers.js").getDefinition;
+const arrayToDefinition = require("./helpers.js").arrayToDefinition;
 
 export default function NewCardForm() {
   const [open, setOpen] = React.useState(false);
@@ -26,7 +28,26 @@ export default function NewCardForm() {
 
   const handleSubmit = () => {
     setOpen(false);
-    axios.post(`/cards/${form.set}`, { front: form.front, back: form.back });
+    if (form.back === "") {
+      getDefinition(form.front)
+        .then(data => {
+          form.back = arrayToDefinition(data.data[0].shortdef);
+          console.log(form.front, form.back, "are getting posted");
+          axios
+            .post(`/cards/${form.set}`, {
+              front: form.front,
+              back: form.back
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } else {
+      axios.post(`/cards/${form.set}`, { front: form.front, back: form.back });
+    }
   };
 
   const handleChange = e => {

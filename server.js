@@ -8,8 +8,6 @@ const db = require("./database");
 app.use("/", express.static(path.join(__dirname, "dist")));
 app.use(bodyParser.json());
 
-//get request to /sets for names of sets
-
 // get request to /cards/:setName specify setName in params and recieve array of card objects
 app.get("/cards/:setName", (req, res) => {
   db.getCards(req.params.setName)
