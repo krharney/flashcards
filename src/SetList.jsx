@@ -4,7 +4,6 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
 export default function SetList(props) {
-  console.log(props);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {

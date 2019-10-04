@@ -50,7 +50,6 @@ class App extends React.Component {
     return axios
       .get(`/cards/${setName}`)
       .then(data => {
-        console.log("GET CARDS DATA: ", data);
         return this.setState({
           cards: data.data
         });
@@ -61,7 +60,6 @@ class App extends React.Component {
   }
 
   getSetList() {
-    console.log("getting setList");
     axios
       .get(`/sets`)
       .then(data => {
@@ -78,9 +76,7 @@ class App extends React.Component {
   changeFrequency(cardId, frequency) {
     axios
       .put(`/cards/${cardId}`, { frequency: frequency })
-      .then(() => {
-        console.log("changed frequency of card ", cardId);
-      })
+      .then(() => {})
       .catch(err => console.log(err));
   }
 
