@@ -2,13 +2,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const autoIncrement = require("mongoose-auto-increment");
 const connection = mongoose.createConnection("mongodb://localhost/mvp");
+const MONGO_URL = require("./config");
 
-if (process.env.MLAB_URL === undefined) {
+if (process.env.MONGO_URL === undefined) {
   mongoose.connect("mongodb://localhost/mvp");
   console.log("connected to db");
   autoIncrement.initialize(connection);
 } else {
-  mongoose.connect(process.env.MLAB_URL);
+  mongoose.connect(process.env.MONGO_URL);
 }
 
 autoIncrement.initialize(connection);

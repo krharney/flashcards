@@ -2,6 +2,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import { string } from "prop-types";
 
 export default function SetList(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -11,8 +12,9 @@ export default function SetList(props) {
   }
 
   function handleClose(set) {
+    console.log("SET: ", typeof set);
     setAnchorEl(null);
-    props.selectHandler(set);
+    if (typeof set === "string") props.selectHandler(set);
   }
 
   return (

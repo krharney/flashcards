@@ -18,8 +18,12 @@ const Flashcard = props => {
   const classes = useStyles();
   return (
     <div>
-      <Card className={classes.card} onClick={props.clickHandler}>
-        <Typography variant="h5" className={classes.title}>
+      <Card
+        className={classes.card}
+        onClick={props.clickHandler}
+        elevation={10}
+      >
+        <Typography variant="h5" className={classes.title} align="center">
           {props.displayFront ? props.card.front : props.card.back}
         </Typography>
       </Card>
