@@ -10,7 +10,7 @@ import axios from "axios";
 const getDefinition = require("./helpers.js").getDefinition;
 const arrayToDefinition = require("./helpers.js").arrayToDefinition;
 
-export default function NewCardForm() {
+export default function NewCardForm(props) {
   const [open, setOpen] = React.useState(false);
   const [form, setForm] = React.useState({
     set: "",
@@ -37,6 +37,16 @@ export default function NewCardForm() {
             .post(`/cards/${form.set}`, {
               front: form.front,
               back: form.back
+            })
+            .then(() => {
+              setForm({ ...form, set: "", front: "", back: "" });
+              props
+                .getCards()
+                .then(props.getSetList())
+                .catch(err => {
+                  console.log("getCards issue");
+                  console.log(err);
+                });
             })
             .catch(err => {
               console.log(err);

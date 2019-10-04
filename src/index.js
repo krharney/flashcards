@@ -6,6 +6,7 @@ import Rating from "./Rating";
 import SetList from "./SetList";
 import axios from "axios";
 import NewCardForm from "./NewCardForm";
+import Grid from "@material-ui/core/Grid";
 const nextCard = require("./helpers").nextCard;
 const staticData = require("./staticdata");
 
@@ -21,6 +22,9 @@ class App extends React.Component {
     };
     this.flipCard = this.flipCard.bind(this);
     this.changeSet = this.changeSet.bind(this);
+    this.getCards = this.getCards.bind(this);
+    this.getSetList = this.getSetList.bind(this);
+    this.changeFrequency = this.changeFrequency.bind(this);
   }
 
   flipCard() {
@@ -32,7 +36,6 @@ class App extends React.Component {
   }
 
   changeSet(setName) {
-    console.log("Change set to ", setName);
     this.getCards(setName)
       .then(() =>
         this.setState({ set: setName, currentCard: nextCard(this.state.cards) })
@@ -43,7 +46,7 @@ class App extends React.Component {
   }
 
   getCards(setName) {
-    console.log("getting cards from ", setName);
+    setName = setName || "Vocab";
     return axios
       .get(`/cards/${setName}`)
       .then(data => {
@@ -92,7 +95,20 @@ class App extends React.Component {
         <Typography variant="h3" gutterBottom color="primary">
           FlashcardHub
         </Typography>
-        <SetList selectHandler={this.changeSet} setList={this.state.setList} />
+        <Grid container spacing={2}>
+          <Grid item>
+            <SetList
+              selectHandler={this.changeSet}
+              setList={this.state.setList}
+            />
+          </Grid>
+          <Grid item>
+            <NewCardForm
+              getCards={this.getCards}
+              getSetList={this.getSetList}
+            />
+          </Grid>
+        </Grid>
         {!!this.state.set && (
           <Flashcard
             card={this.state.currentCard}
@@ -109,11 +125,6 @@ class App extends React.Component {
               cardId={this.state.currentCard._id}
               flipCard={this.flipCard}
             />
-          </div>
-        )}
-        {!!this.state.set && (
-          <div>
-            <NewCardForm />
           </div>
         )}
       </div>

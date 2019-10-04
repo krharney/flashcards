@@ -12,7 +12,6 @@ app.use(bodyParser.json());
 app.get("/cards/:setName", (req, res) => {
   db.getCards(req.params.setName)
     .then(data => {
-      console.log(data);
       res.send(data);
     })
     .catch(err => {
@@ -25,7 +24,6 @@ app.get("/cards/:setName", (req, res) => {
 app.get("/sets", (req, res) => {
   db.getSets()
     .then(data => {
-      console.log("sets: ", data);
       res.send(data);
     })
     .catch(err => {
@@ -37,7 +35,6 @@ app.get("/sets", (req, res) => {
 // post req to /cards/:setName specify setName in params and font, back in body
 // frequency auto set to 3 (medium)
 app.post("/cards/:setName", (req, res) => {
-  console.log(req.body);
   db.addCard(req.params.setName, req.body.front, req.body.back)
     .then(data => {
       // console.log(data);
