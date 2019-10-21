@@ -14,15 +14,31 @@ To run in hot module reloading mode:
 npm start
 ```
 
-To create a production build: npm run build-prod
+To create a production build:
 
-To create a development build: npm run build-dev
+```sh
+npm run build-prod
+```
 
-To run a production server: npm run server-prod
+To create a development build:
 
-To run a development server: npm run server-dev
+```sh
+npm run build-dev
+```
 
-Create a config.js file containing an exported `API_KEY` with the Merriam-Webster API https://dictionaryapi.com/
+To run a production server:
+
+```sh
+npm run server-prod
+```
+
+To run a development server:
+
+```sh
+npm run server-dev
+```
+
+Create a config.js file containing an exported `API_KEY` with the [Merriam-Webster API](https://dictionaryapi.com/)
 
 ## Running
 
