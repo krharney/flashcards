@@ -2,7 +2,9 @@
 
 MERN full stack application for for flashcards.
 
-Vocabulary cards can be auto-generated from Merriam-Webster API. Non-vocab cards can be generated without
+## Description
+
+User can create flashcards by naming a set, front, and back of the card. Vocabulary cards can have the back auto-generated from Merriam-Webster API. Flashcards will be displayed randomly from a selected set. After checking the answer, the user can rate their familiarity with the card. Higher rated cards will be displayed less frequently.
 
 ## Building and running on localhost
 
@@ -43,8 +45,6 @@ Create a config.js file containing an exported `API_KEY` with the [Merriam-Webst
 ## Running
 
 Open `http://localhost:3000/` in your browser
-
-## Using the App
 
 ## Credits
 
