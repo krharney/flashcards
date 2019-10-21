@@ -1,12 +1,18 @@
 # Flashcard Hub
 
-MERN full stack application for flashcards.
+MERN full stack application for for flashcards.
+
+Vocabulary cards can be auto-generated from Merriam-Webster API. Non-vocab cards can be generated without
 
 ## Building and running on localhost
 
 First install dependencies: npm install
 
-To run in hot module reloading mode: npm start
+To run in hot module reloading mode:
+
+```sh
+npm start
+```
 
 To create a production build: npm run build-prod
 
@@ -15,6 +21,8 @@ To create a development build: npm run build-dev
 To run a production server: npm run server-prod
 
 To run a development server: npm run server-dev
+
+Create a config.js file containing an exported `API_KEY` with the Merriam-Webster API https://dictionaryapi.com/
 
 ## Running
 
