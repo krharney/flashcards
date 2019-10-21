@@ -10,7 +10,8 @@
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack -w -d --mode development",
     "build-prod": "webpack -p --mode production",
-    "server": "nodemon server.js",
+    "server-dev": "nodemon server.js",
+    "server-prod": "node server.js",
     "start": "webpack-dev-server --hot --mode development"
   },
   "dependencies": {

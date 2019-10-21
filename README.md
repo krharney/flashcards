@@ -1,36 +1,26 @@
-# empty-project
+# Flashcard Hub
 
-Empty project.
+MERN full stack application for flashcards.
 
 ## Building and running on localhost
 
-First install dependencies:
+First install dependencies: npm install
 
-```sh
-npm install
-```
+To run in hot module reloading mode: npm start
 
-To run in hot module reloading mode:
+To create a production build: npm run build-prod
 
-```sh
-npm start
-```
+To create a development build: npm run build-dev
 
-To create a production build:
+To run a production server: npm run server-prod
 
-```sh
-npm run build-prod
-```
-
-To create a development build:
-
-```sh
-npm run build-dev
-```
+To run a development server: npm run server-dev
 
 ## Running
 
-Open the file `dist/index.html` in your browser
+Open `http://localhost:3000/` in your browser
+
+## Using the App
 
 ## Credits
 
