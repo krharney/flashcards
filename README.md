@@ -40,11 +40,11 @@ To run a development server:
 npm run server-dev
 ```
 
-Create a config.js file containing an exported `API_KEY` with the [Merriam-Webster API](https://dictionaryapi.com/)
+Create a config.js file containing an exported `API_KEY` from the [Merriam-Webster API](https://dictionaryapi.com/).
 
 ## Running
 
-Open `http://localhost:3000/` in your browser
+Open `http://localhost:3000/` in the browser.
 
 ## Credits
 
