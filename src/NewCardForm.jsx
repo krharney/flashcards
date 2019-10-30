@@ -32,7 +32,6 @@ export default function NewCardForm(props) {
       getDefinition(form.front)
         .then(data => {
           form.back = arrayToDefinition(data.data[0].shortdef);
-          console.log(form.front, form.back, "are getting posted");
           axios
             .post(`/cards/${form.set}`, {
               front: form.front,
@@ -42,7 +41,7 @@ export default function NewCardForm(props) {
               setForm({ ...form, set: "", front: "", back: "" });
               props
                 .getCards()
-                .then(props.getSetList())
+                .then(() => props.getSetList())
                 .catch(err => {
                   console.log("getCards issue");
                   console.log(err);
@@ -56,7 +55,21 @@ export default function NewCardForm(props) {
           console.log(err);
         });
     } else {
-      axios.post(`/cards/${form.set}`, { front: form.front, back: form.back });
+      axios
+        .post(`/cards/${form.set}`, { front: form.front, back: form.back })
+        .then(() => {
+          setForm({ ...form, set: "", front: "", back: "" });
+          props
+            .getCards()
+            .then(() => props.getSetList())
+            .catch(err => {
+              console.log("getCards issue");
+              console.log(err);
+            });
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   };
 

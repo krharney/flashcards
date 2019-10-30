@@ -1,16 +1,21 @@
 import React from "react";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles({
   card: {
-    minWidth: 275,
-    maxWidth: 500,
-    height: 250
+    width: 500,
+    height: 300
   },
   title: {
-    padding: "10px"
+    padding: "0px 10px 0px 10px",
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    height: "300px",
+    position: "relative",
+    cursor: "default"
   }
 });
 

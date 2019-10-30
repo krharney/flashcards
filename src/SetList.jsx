@@ -2,7 +2,6 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import { string } from "prop-types";
 
 export default function SetList(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);

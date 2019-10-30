@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Typography } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 import Flashcard from "./Flashcard";
 import Rating from "./Rating";
 import SetList from "./SetList";
@@ -60,7 +60,7 @@ class App extends React.Component {
   }
 
   getSetList() {
-    axios
+    return axios
       .get(`/sets`)
       .then(data => {
         console.log(data.data);
@@ -88,10 +88,10 @@ class App extends React.Component {
     console.log("rendering... index.js");
     return (
       <div>
-        <Typography variant="h3" gutterBottom color="primary">
+        <Typography variant="h3" gutterBottom color="primary" align="center">
           FlashcardHub
         </Typography>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} justify="center">
           <Grid item>
             <SetList
               selectHandler={this.changeSet}
@@ -105,24 +105,36 @@ class App extends React.Component {
             />
           </Grid>
         </Grid>
-        {!!this.state.set && (
-          <Flashcard
-            card={this.state.currentCard}
-            displayFront={this.state.front}
-            clickHandler={this.flipCard}
-          />
-        )}
-
-        {!this.state.front && (
-          <div>
-            <Typography variant="h6">Rate your understanding:</Typography>
-            <Rating
-              changeFrequency={this.changeFrequency}
-              cardId={this.state.currentCard._id}
-              flipCard={this.flipCard}
-            />
-          </div>
-        )}
+        <br />
+        <Grid
+          container
+          alignItems="center"
+          justify="center"
+          direction={"column"}
+        >
+          <Grid item>
+            {!!this.state.set && (
+              <Flashcard
+                card={this.state.currentCard}
+                displayFront={this.state.front}
+                clickHandler={this.flipCard}
+              />
+            )}
+          </Grid>
+          <br />
+          <Grid item>
+            {!this.state.front && (
+              <div>
+                <Typography variant="h6">Rate your understanding:</Typography>
+                <Rating
+                  changeFrequency={this.changeFrequency}
+                  cardId={this.state.currentCard._id}
+                  flipCard={this.flipCard}
+                />
+              </div>
+            )}
+          </Grid>
+        </Grid>
       </div>
     );
   }
